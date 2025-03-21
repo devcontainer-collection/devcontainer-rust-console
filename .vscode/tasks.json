@@ -18,14 +18,17 @@
 		},
 		{
 			"label": "build for debugging",
-			"type": "cargo",
-			"command": "build",
-			"problemMatcher": [
-				"$rustc"
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"build"
 			],
 			"options": {
 				"cwd": "${workspaceFolder}/src"
 			},
+			"problemMatcher": [
+				"$rustc"
+			],
 			"group": "build"
 		},
 		{
