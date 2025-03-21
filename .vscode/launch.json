@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Rust Program",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/target/debug/rust-example",
+            "args": [],
+            "cwd": "${workspaceFolder}/src", // `src` 디렉토리에서 디버깅
+            "preLaunchTask": "build for debugging",
+            "stopOnEntry": false
+        }
+    ]
+}

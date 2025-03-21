@@ -1,0 +1,38 @@
+{
+  "name": "Rust Dev Container",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "rust-dev",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+      "plugins": "",
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+      "username": "root"
+    },
+    "github-cli": "latest"
+  },
+  // container startup script
+  "postCreateCommand": "sh /workspace/.devcontainer/containers/rust-dev/startup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vadimcn.vscode-lldb",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml",
+        "rust-lang.rustfmt",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "mhutchie.git-graph"
+      ],
+      "settings": {
+        "files.eol": "\n",
+        "editor.tabSize": 4,
+        "editor.renderWhitespace": "all",
+        "editor.formatOnSave": true,
+        "remote.localPortHost": "allInterfaces",
+        "git.detectSubmodulesLimit": 70,
+        "editor.tabCompletion": "on"
+      }
+    }
+  }
+}
