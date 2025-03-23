@@ -9,7 +9,9 @@
             "args": [],
             "cwd": "${workspaceFolder}/src", // `src` 디렉토리에서 디버깅
             "preLaunchTask": "build for debugging",
-            "stopOnEntry": false
+            "stopOnEntry": false,
+            "console": "integratedTerminal",
+            "terminal": "integrated"
         }
     ]
 }
