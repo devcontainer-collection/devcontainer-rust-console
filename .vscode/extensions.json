@@ -8,10 +8,12 @@
 		"mhutchie.git-graph",
 		"waderyan.gitblame",
 		"GitHub.copilot",
-		"GitHub.copilot-chat",	
+		"GitHub.copilot-chat"
+		//last extension should not have a comma
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": [
-		
+		//
+		//last extension should not have a comma
 	]
 }

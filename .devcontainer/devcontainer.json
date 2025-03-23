@@ -1,10 +1,10 @@
 {
-  "name": "Rust Dev Container",
+  "name": "Dev Container(rust)",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "rust-dev",
+  "service": "main",
   "workspaceFolder": "/workspace",
   // container startup script
-  "postCreateCommand": "sh /workspace/.devcontainer/containers/rust-dev/startup.sh",
+  "postCreateCommand": "sh /workspace/.devcontainer/containers/main/startup.sh",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -12,6 +12,7 @@
         "rust-lang.rust-analyzer",
         "tamasfe.even-better-toml",
         "rust-lang.rustfmt"
+        //last extension should not have a comma
       ],
       "settings": {
         "files.eol": "\n",

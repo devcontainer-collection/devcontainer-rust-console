@@ -19,7 +19,11 @@ If you see a message prompting you to install recommended extensions like in the
 
 ### 6. Debug the Project  
 Open `/workspace/src/main.rs` and press **F5** to start debugging.  
-The project will be **compiled and executed inside the container**, and the output will be visible in the **Debug Console**.
+The project will be **compiled and executed inside the container**, and the output will be visible in the **Terminal**.
 
-### 7. Cross-Build the Project  
+### 7. Build Docker Runtime-Native Binary  
+Open the command palette: Press **Ctrl + Shift + P** (macOS: **Cmd + Shift + P**) → **Tasks: Run Task** → **build native(release): docker runtime native**.  
+This will generate an executable binary that runs natively in the Docker runtime environment.
+
+### 8. Cross-Build the Project  
 Open the command palette: Press **Ctrl + Shift + P** (macOS: **Cmd + Shift + P**) → **Tasks: Run Task** → **Build all release targets**.

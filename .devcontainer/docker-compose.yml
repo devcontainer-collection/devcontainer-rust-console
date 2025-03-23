@@ -1,11 +1,11 @@
 version: "3.8"
 
 services:
-  rust-dev:
+  main:
     build:
       context: .
-      dockerfile: ./containers/rust-dev/Dockerfile
-    container_name: rust-dev-container
+      dockerfile: ./containers/main/Dockerfile
+    #container_name: main-container
     volumes:
       # bind vscode workspace root path to container target
       - type: bind
