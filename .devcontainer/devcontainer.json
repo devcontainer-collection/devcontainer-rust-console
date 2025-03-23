@@ -3,14 +3,6 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "rust-dev",
   "workspaceFolder": "/workspace",
-  "features": {
-    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
-      "plugins": "",
-      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
-      "username": "root"
-    },
-    "github-cli": "latest"
-  },
   // container startup script
   "postCreateCommand": "sh /workspace/.devcontainer/containers/rust-dev/startup.sh",
   "customizations": {
@@ -19,10 +11,7 @@
         "vadimcn.vscode-lldb",
         "rust-lang.rust-analyzer",
         "tamasfe.even-better-toml",
-        "rust-lang.rustfmt",
-        "GitHub.copilot",
-        "GitHub.copilot-chat",
-        "mhutchie.git-graph"
+        "rust-lang.rustfmt"
       ],
       "settings": {
         "files.eol": "\n",
