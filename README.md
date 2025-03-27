@@ -1,4 +1,33 @@
-## Getting Started (with Dev Containers)
+## About This DevContainer
+
+This repository provides a DevContainer setup for rust.
+The Docker image is based on `rust:latest`.
+The Docker image size is approximately 7.0GB after build.
+
+Using `cargo zigbuild`, cross-builds are supported for generating self-contained executables for various platforms.
+
+### Host Platform Compatibility for Self-Contained Executable Builds
+
+The results below are based on testing with macOS-x86_64 as the host platform and Linux x86_64 in a container environment. Other host platforms and environments have not been tested.
+
+| Target OS | Target Arch | Build         | Strip        |
+|-----------|-------------|---------------|--------------|
+| Windows   | x64         | OK            | OK           |
+| Windows   | arm64       | OK            | OK           |
+| macOS     | x64         | OK            | Not supported|
+| macOS     | arm64       | OK            | Not supported|
+| Linux     | x64         | OK            | OK           |
+| Linux     | arm64       | OK            | OK           |
+
+**Legend:**
+- **OK**: Fully supported and tested.
+- **Not supported**: Not supported for this configuration.
+- **Planned**: Planned for future support.
+- **Not tested**: Not yet tested.
+
+---
+
+## Getting Started (With Dev Containers)
 
 ### 1. Launch VSCode  
 Open Visual Studio Code.
@@ -27,4 +56,8 @@ Open the command palette: Press **Ctrl + Shift + P** (macOS: **Cmd + Shift + P**
 This will generate an executable binary that runs natively in the Docker runtime environment.
 
 ### 8. Cross-Build the Project  
-Open the command palette: Press **Ctrl + Shift + P** (macOS: **Cmd + Shift + P**) → **Tasks: Run Task** → **Build all release targets**.
+Open the command palette: Press **Ctrl + Shift + P** (macOS: **Cmd + Shift + P**) → **Tasks: Run Task** → **build all release targets**.
+
+### Notes
+
+The file `[WORKSAPCE]/src/build-scripts/strip.sh` exists and functions correctly but is not currently used in the build process.

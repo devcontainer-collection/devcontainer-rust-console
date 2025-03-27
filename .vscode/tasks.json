@@ -32,13 +32,35 @@
 			"group": "build"
 		},
 		{
-			"label": "build all release targets",
+			"label": "build for release: docker runtime native",
 			"type": "shell",
-			"command": "cargo",
-			"args": [],
+			"command": "sh",
+			"args": [
+				"-c",
+				"RUSTFLAGS=\"-C strip=symbols\" cargo build --release" // strip all
+				// "RUSTFLAGS=\"-C strip=debuginfo\" cargo build --release"// strip but keep function names
+				// "RUSTFLAGS=\"-C strip=none\" cargo build --release" // no strip
+			],
 			"options": {
 				"cwd": "${workspaceFolder}/src"
 			},
+			"problemMatcher": [
+				"$rustc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "build all release targets",
+			"type": "shell",
+			"dependsOn": [
+				"build cross(release): x86_64-unknown-linux-gnu",
+				"build cross(release): aarch64-unknown-linux-gnu",
+				"build cross(release): x86_64-apple-darwin",
+				"build cross(release): aarch64-apple-darwin",
+				"build cross(release): aarch64-pc-windows-gnullvm",
+				"build cross(release): x86_64-pc-windows-gnu",
+				"build for release: docker runtime native"
+			],
 			"group": "build",
 			"presentation": {
 				"echo": true,
@@ -47,82 +69,37 @@
 				"panel": "shared",
 				"showReuseMessage": true,
 				"clear": false
-			},
-			"problemMatcher": [
-				"$rustc"
-			],
-			"dependsOn": [
-				"build cross(release): aarch64-pc-windows-gnullvm",
-				"build cross(release): x86_64-pc-windows-gnu",
-				"build cross(release): x86_64-apple-darwin",
-				"build cross(release): aarch64-apple-darwin",
-				"build cross(release): aarch64-unknown-linux-gnu",
-				"build native(release): docker runtime native"
-			]
+			}
 		},
+		// {
+		//  // sample task build and strip
+		//  // but not nessary for cross compile. cargo zigbuild will do it
+		// 	"label": "build cross(release): x86_64-unknown-linux-gnu",
+		// 	"type": "shell",
+		// 	"command": "sh",
+		// 	"args": [
+		// 		"-c",
+		// 		"TARGET=x86_64-unknown-linux-gnu && cargo zigbuild --release --target $TARGET && sh ./build-scripts/strip.sh $TARGET"
+		// 	],
+		// 	"options": {
+		// 		"cwd": "${workspaceFolder}/src"
+		// 	},
+		// 	"problemMatcher": [
+		// 		"$rustc"
+		// 	]
+		// },
 		{
-			"label": "build cross(release): aarch64-pc-windows-gnullvm",
+			"label": "build cross(release): x86_64-unknown-linux-gnu",
 			"type": "shell",
 			"command": "cargo",
 			"args": [
 				"zigbuild",
 				"--release",
 				"--target",
-				"aarch64-pc-windows-gnullvm"
+				"x86_64-unknown-linux-gnu"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}/src"
-			},
-			"problemMatcher": [
-				"$rustc"
-			]
-		},
-		{
-			"label": "build cross(release): x86_64-pc-windows-gnu",
-			"type": "shell",
-			"command": "cargo",
-			"args": [
-				"zigbuild",
-				"--release",
-				"--target",
-				"x86_64-pc-windows-gnu"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}/src"
-			},
-			"problemMatcher": [
-				"$rustc"
-			]
-		},
-		{
-			"label": "build cross(release): x86_64-apple-darwin",
-			"type": "shell",
-			"command": "cargo",
-			"args": [
-				"zigbuild",
-				"--release",
-				"--target",
-				"x86_64-apple-darwin"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}/src"
-			},
-			"problemMatcher": [
-				"$rustc"
-			]
-		},
-		{
-			"label": "build cross(release): aarch64-apple-darwin",
-			"type": "shell",
-			"command": "cargo",
-			"args": [
-				"zigbuild",
-				"--release",
-				"--target",
-				"aarch64-apple-darwin"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}/src"
+				"cwd": "${workspaceFolder}/src",
 			},
 			"problemMatcher": [
 				"$rustc"
@@ -139,22 +116,75 @@
 				"aarch64-unknown-linux-gnu"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}/src"
+				"cwd": "${workspaceFolder}/src",
 			},
 			"problemMatcher": [
 				"$rustc"
 			]
 		},
 		{
-			"label": "build native(release): docker runtime native",
+			"label": "build cross(release): x86_64-apple-darwin",
 			"type": "shell",
 			"command": "cargo",
 			"args": [
-				"build",
-				"--release"
+				"zigbuild",
+				"--release",
+				"--target",
+				"x86_64-apple-darwin"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}/src"
+				"cwd": "${workspaceFolder}/src",
+			},
+			"problemMatcher": [
+				"$rustc"
+			]
+		},
+		{
+			"label": "build cross(release): aarch64-apple-darwin",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"zigbuild",
+				"--release",
+				"--target",
+				"aarch64-apple-darwin"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/src",
+			},
+			"problemMatcher": [
+				"$rustc"
+			]
+		},
+		{
+			"label": "build cross(release): aarch64-pc-windows-gnullvm",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"zigbuild",
+				"--release",
+				"--target",
+				"aarch64-pc-windows-gnullvm"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/src",
+			},
+			"problemMatcher": [
+				"$rustc"
+			]
+		},
+		{
+			"label": "build cross(release): x86_64-pc-windows-gnu",
+			"type": "shell",
+			"command": "cargo",
+			"args": [
+				"zigbuild",
+				"--release",
+				"--target",
+				"x86_64-pc-windows-gnu"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/src",
 			},
 			"problemMatcher": [
 				"$rustc"

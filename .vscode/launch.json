@@ -7,7 +7,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/target/debug/rust-example",
             "args": [],
-            "cwd": "${workspaceFolder}/src", // `src` 디렉토리에서 디버깅
+            "cwd": "${workspaceFolder}/src", // Working directory for the program
             "preLaunchTask": "build for debugging",
             "stopOnEntry": false,
             "console": "integratedTerminal",
