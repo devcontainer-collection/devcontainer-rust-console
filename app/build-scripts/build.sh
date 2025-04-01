@@ -123,8 +123,9 @@ echo "[build] Build completed"
 #     # echo "[build] Binary: $TARGET_DIR/$TARGET_TRIPLE/release/$BINARY_NAME_WITH_EXT"
 #     bash "$SCRIPT_DIR/strip.sh" --bin "$TARGET_DIR/$TARGET_TRIPLE/release/$BINARY_NAME_WITH_EXT" --target-triple "$TARGET_TRIPLE"
 # fi
-echo "[build] Note: macOS binaries are not stripped automatically. Please run 'strip' on each binary manually on a macOS system that matches the target architecture."
-
+if [ "$BUILD_TYPE" = "release" ] && { [ "$OS" = "macos" ] || [ "$OS" = "darwin" ]; }; then
+  echo "[build] Note: macOS binaries are not stripped automatically. Please run 'strip' on each binary manually on a macOS system that matches the target architecture."
+fi
 
 echo "Exit $SCRIPT_NAME"
 echo

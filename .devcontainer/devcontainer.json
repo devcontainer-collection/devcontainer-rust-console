@@ -22,21 +22,30 @@
         "remote.localPortHost": "allInterfaces",
         "git.detectSubmodulesLimit": 70,
         "editor.tabCompletion": "on",
+        "rust-analyzer.linkedProjects": [
+          "app/src/Cargo.toml"
+        ],
         //--------------------- launch in devcontainer ---------------------
         "launch": {
           "version": "0.2.0",
           "configurations": [
             {
-              "name": "Debug Rust Program",
               "type": "lldb",
               "request": "launch",
-              "program": "${workspaceFolder}/app/src/target/debug/main",
+              "name": "Debug Rust Program",
+              "cargo": {
+                "args": [
+                  "build"
+                ],
+                "cwd": "${workspaceFolder}/app/src"
+              },
               "args": [],
-              // "cwd": "${workspaceFolder}/app/src", // Working directory for the program
-              "preLaunchTask": "build for debugging",
-              "stopOnEntry": false,
-              "console": "integratedTerminal",
-              "terminal": "integrated"
+              "program": "${workspaceFolder}/app/src/target/debug/main",
+              // "cwd": "${workspaceFolder}/app/src",
+              "sourceLanguages": [
+                "rust"
+              ],
+              "preLaunchTask": "build for debugging"
             }
           ]
         },
