@@ -55,7 +55,8 @@ RUN rustup target add x86_64-unknown-linux-gnu
 RUN rustup target add aarch64-unknown-linux-gnu
 RUN rustup target add x86_64-apple-darwin
 RUN rustup target add aarch64-apple-darwin
-RUN rustup target add x86_64-pc-windows-gnu
+# RUN rustup target add x86_64-pc-windows-gnu
+RUN rustup target add x86_64-pc-windows-gnullvm
 RUN rustup target add aarch64-pc-windows-gnullvm
 
 # rustfmt와 clippy 설치

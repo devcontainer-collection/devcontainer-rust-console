@@ -5,13 +5,13 @@
             "name": "Debug Rust Program",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceFolder}/src/target/debug/rust-example",
+            "program": "${workspaceFolder}/app/build/debug/debug/main",
             "args": [],
-            "cwd": "${workspaceFolder}/src", // Working directory for the program
+            // "cwd": "${workspaceFolder}/app/src", // Working directory for the program
             "preLaunchTask": "build for debugging",
             "stopOnEntry": false,
             "console": "integratedTerminal",
-            "terminal": "integrated"
+            "terminal": "integrated",
         }
     ]
 }
