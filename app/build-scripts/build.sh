@@ -64,7 +64,7 @@ if [ -z "$ARCH" ] || [ -z "$OS" ]; then
 fi
 
 # Extract the crate name from Cargo.toml.
-CARGO_TOML_FULL_PATH="$SRC_DIR/Cargo.toml"
+CARGO_TOML_FULL_PATH="$APP_DIR/Cargo.toml"
 if [ ! -f "$CARGO_TOML_FULL_PATH" ]; then
   echo "Cargo.toml not found: $CARGO_TOML_FULL_PATH"
   exit 1
@@ -85,7 +85,7 @@ else
   # ex) x86_64-unknown-linux-gnu
 fi
 
-TARGET_DIR="$SRC_DIR/target"
+TARGET_DIR="$APP_DIR/target"
 # BUILDTYPE_ARCH_VENDOR_OS_ABI_PATH="$APP_DIR/build/${BUILD_TYPE}/$TARGET_TRIPLE"
 
 # OUTPUT="${BUILDTYPE_ARCH_VENDOR_OS_ABI_PATH}/${BASENAME}"

@@ -23,7 +23,7 @@
         "git.detectSubmodulesLimit": 70,
         "editor.tabCompletion": "on",
         "rust-analyzer.linkedProjects": [
-          "app/src/Cargo.toml"
+          "app/Cargo.toml"
         ],
         //--------------------- launch in devcontainer ---------------------
         "launch": {
@@ -40,7 +40,7 @@
                 "cwd": "${workspaceFolder}/app/src"
               },
               "args": [],
-              "program": "${workspaceFolder}/app/src/target/debug/main",
+              "program": "${workspaceFolder}/app/target/debug/main",
               // "cwd": "${workspaceFolder}/app/src",
               "sourceLanguages": [
                 "rust"
@@ -62,9 +62,9 @@
                 "clean"
               ],
               "options": {
-                "cwd": "${workspaceFolder}/app/src",
+                "cwd": "${workspaceFolder}/app",
                 "env": {
-                  "CARGO_TARGET_DIR": "${workspaceFolder}/app/src/target"
+                  "CARGO_TARGET_DIR": "${workspaceFolder}/app/target"
                 }
               },
               "problemMatcher": []
