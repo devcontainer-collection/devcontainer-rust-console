@@ -1,10 +1,10 @@
 ## About This DevContainer
 
-This repository provides a DevContainer setup for rust.
+This repository provides a DevContainer setup for Rust.
 The Docker image is based on `rust:latest`.
 The Docker image size is approximately 7.0GB after build.
 
-This setup has been tested only on macOS-x86_64 and Linux-x86_64 as host platforms, with Linux-x86_64 as the container runtime. Compatibility with other environments is not guaranteed.
+This setup has been tested only on macOS-x86_64 and Linux-x86_64 as host platforms, with Linux-x86_64 as the container runtime. Compatibility with other environments has not been verified.
 
 `cargo zigbuild` is used to perform cross-builds for creating self-contained executables for various platforms.
 
@@ -24,6 +24,13 @@ This setup has been tested only on macOS-x86_64 and Linux-x86_64 as host platfor
 - **Not supported**: Not supported for this configuration.
 - **Planned**: Planned for future support.
 - **Not tested**: Not yet tested.
+
+## Support This Project
+
+If you found this project helpful, consider supporting its maintenance and future development with a small donation.  
+You can buy me a coffee via the Ko-fi link below — thank you! ☕✨  
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B21CR05U)
 
 ---
 
@@ -60,4 +67,4 @@ Open the command palette: Press **Ctrl + Shift + P** (macOS: **Cmd + Shift + P**
 
 ### Notes
 
-The file `[WORKSPACE_FOLDER]/src/build-scripts/strip.sh` exists and functions correctly but is not currently used in the build process.
+The file `[WORKSPACE_FOLDER]/app/build-scripts/strip.sh` exists and functions correctly but is not currently used in the build process.

@@ -1,15 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
-# This build script is for building a Rust project using zigbuild.
+set -e
 
+SCRIPT_NAME=$(basename "$0")
+
+trap 'echo "Exit $SCRIPT_NAME"' EXIT
 echo "Running $SCRIPT_NAME..."
 
 if [ ! -f "/.dockerenv" ]; then
   echo "$SCRIPT_NAME: This script is only for use in a devcontainer."
   exit 0
 fi
-
-set -e
 
 SCRIPT_NAME=$(basename "$0")
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -126,6 +127,3 @@ echo "[build] Build completed"
 if [ "$BUILD_TYPE" = "release" ] && { [ "$OS" = "macos" ] || [ "$OS" = "darwin" ]; }; then
   echo "[build] Note: macOS binaries are not stripped automatically. Please run 'strip' on each binary manually on a macOS system that matches the target architecture."
 fi
-
-echo "Exit $SCRIPT_NAME"
-echo
